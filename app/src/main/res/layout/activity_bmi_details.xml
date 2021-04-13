@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BmiDetailsActivity">
+
+    <TextView
+        android:id="@+id/bmi_details_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your BMI details"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <TextView
+        android:id="@+id/weight_label"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:text="Your weight:"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        android:textAlignment="textEnd"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/weight_value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bmi_details_title"
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.5"
+        />
+
+    <TextView
+        android:id="@+id/weight_value"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/weight_label"
+        app:layout_constraintTop_toBottomOf="@+id/bmi_details_title"
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.5"
+    />
+
+    <TextView
+        android:id="@+id/height_label"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:text="Your height:"
+        android:textAlignment="textEnd"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/height_value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weight_label"
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.5"
+        />
+
+    <TextView
+        android:id="@+id/height_value"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        android:text=""
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/height_label"
+        app:layout_constraintTop_toBottomOf="@+id/weight_label" />
+
+    <TextView
+        android:id="@+id/bmi_label"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:text="Your BMI:"
+        android:textAlignment="textEnd"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bmi_value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/height_label"
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.5"
+        />
+
+    <TextView
+        android:id="@+id/bmi_value"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bmi_label"
+        app:layout_constraintTop_toBottomOf="@+id/height_label"
+        app:layout_constraintVertical_bias="0.1" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
