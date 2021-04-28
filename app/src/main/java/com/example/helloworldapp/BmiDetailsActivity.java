@@ -2,10 +2,17 @@ package com.example.helloworldapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
-public class BmiDetailsActivity extends AppCompatActivity {
+import com.example.helloworldapp.bmi.BMI;
+import com.example.helloworldapp.bmi.BMICategories;
+
+public class BmiDetailsActivity extends MenuActivity {
+
+    private double calculatedBmi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +26,17 @@ public class BmiDetailsActivity extends AppCompatActivity {
         TextView bmiLabel = findViewById(R.id.bmi_value);
         weightLabel.setText(String.format("%s kg", weight));
         heightLabel.setText(String.format("%s m", height));
-        bmiLabel.setText(String.valueOf(Math.round(weight / (height * height))));
+        calculatedBmi = Math.round(weight / (height * height));
+        bmiLabel.setText(String.valueOf(calculatedBmi));
+        Button button = findViewById(R.id.bmi_list_button);
+        button.setOnClickListener(view -> {
+            Intent intent = new Intent(this, BMIListItem.class);
+            BMI bmi = new BMICategories().get(calculatedBmi);
+            intent.putExtra("title", bmi.getTitle());
+            intent.putExtra("description", bmi.getDescription());
+            startActivity(intent);
+        });
     }
+
 
 }

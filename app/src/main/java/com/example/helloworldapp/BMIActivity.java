@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class BMIActivity extends Activity {
+public class BMIActivity extends MenuActivity {
 
     public static final String WEIGHT = "weight";
     public static final String HEIGHT = "height";

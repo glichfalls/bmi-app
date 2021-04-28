@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HelloWorldApp">
-        <activity android:name=".BmiDetailsActivity"></activity>
+        <activity android:name=".BMIListItem"></activity>
+        <activity android:name=".BMIList" />
+        <activity android:name=".BmiDetailsActivity" />
         <activity android:name=".BMIActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
