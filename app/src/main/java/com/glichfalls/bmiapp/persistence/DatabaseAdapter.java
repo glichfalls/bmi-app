@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.glichfalls.bmiapp.model.bmi.BMI;
 import com.glichfalls.bmiapp.model.user.User;
 
 import java.sql.Timestamp;
@@ -72,7 +73,27 @@ public class DatabaseAdapter {
         List<User> results = new ArrayList<>();
         c.moveToFirst();
         while(!c.isAfterLast()) {
-            results.add(new User(c.getInt(0), c.getString(1)));
+            results.add(new User(c.getLong(0), c.getString(1)));
+            c.moveToNext();
+        }
+        c.close();
+        return results;
+    }
+
+    public List<BMI> selectAllBmiByUser(long id) {
+        String[] columns = { "id", "user", "timestamp", "height", "weight" };
+        String[] args = { Long.toString(id) };
+        Cursor c = database.query(bmiTable, columns, "user = ?", args, null, null, null);
+        List<BMI> results = new ArrayList<>();
+        c.moveToFirst();
+        while(!c.isAfterLast()) {
+            results.add(new BMI(
+                c.getLong(0),
+                c.getLong(1),
+                c.getLong(2),
+                c.getFloat(3),
+                c.getFloat(4)
+            ));
             c.moveToNext();
         }
         c.close();
