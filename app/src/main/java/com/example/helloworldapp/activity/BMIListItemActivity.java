@@ -1,11 +1,12 @@
-package com.example.helloworldapp;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.helloworldapp.activity;
 
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class BMIListItem extends MenuActivity {
+import com.example.helloworldapp.R;
+import com.example.helloworldapp.activity.MenuActivity;
+
+public class BMIListItemActivity extends MenuActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

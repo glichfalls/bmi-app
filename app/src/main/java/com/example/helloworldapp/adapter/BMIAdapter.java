@@ -1,4 +1,4 @@
-package com.example.helloworldapp;
+package com.example.helloworldapp.adapter;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.example.helloworldapp.R;
 import com.example.helloworldapp.bmi.BMI;
 
 import java.util.ArrayList;

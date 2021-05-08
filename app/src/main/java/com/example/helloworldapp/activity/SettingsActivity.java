@@ -1,10 +1,10 @@
-package com.example.helloworldapp;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.helloworldapp.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+
+import com.example.helloworldapp.R;
 
 public class SettingsActivity extends MenuActivity {
 

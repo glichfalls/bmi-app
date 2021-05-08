@@ -1,16 +1,15 @@
-package com.example.helloworldapp;
+package com.example.helloworldapp.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 
+import com.example.helloworldapp.R;
+import com.example.helloworldapp.adapter.BMIAdapter;
 import com.example.helloworldapp.bmi.BMI;
 import com.example.helloworldapp.bmi.BMICategories;
 
-import java.util.ArrayList;
-
-public class BMIList extends MenuActivity {
+public class BMIListActivity extends MenuActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +20,7 @@ public class BMIList extends MenuActivity {
         listView.setAdapter(adapter);
         listView.setOnItemClickListener((parent, view, position, id) -> {
             BMI bmi = (BMI) parent.getItemAtPosition(position);
-            Intent intent = new Intent(this, BMIListItem.class);
+            Intent intent = new Intent(this, BMIListItemActivity.class);
             intent.putExtra("title", bmi.getTitle());
             intent.putExtra("description", bmi.getDescription());
             startActivity(intent);

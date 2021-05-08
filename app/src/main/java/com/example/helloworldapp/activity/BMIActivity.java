@@ -1,10 +1,11 @@
-package com.example.helloworldapp;
+package com.example.helloworldapp.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.example.helloworldapp.R;
 
 public class BMIActivity extends MenuActivity {
 

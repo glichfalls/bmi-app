@@ -9,13 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HelloWorldApp">
-        <activity android:name=".CreateUserActivity"></activity>
-        <activity android:name=".SettingsActivity" />
-        <activity android:name=".BMIListItem" />
-        <activity android:name=".BMIList" />
-        <activity android:name=".BmiDetailsActivity" />
-        <activity android:name=".BMIActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.CreateUserActivity"></activity>
+        <activity android:name=".activity.SettingsActivity" />
+        <activity android:name=".activity.BMIListItemActivity" />
+        <activity android:name=".activity.BMIListActivity" />
+        <activity android:name=".activity.BmiDetailsActivity" />
+        <activity android:name=".activity.BMIActivity" />
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

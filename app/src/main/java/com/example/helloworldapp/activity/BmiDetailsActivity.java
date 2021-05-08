@@ -1,12 +1,11 @@
-package com.example.helloworldapp;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.helloworldapp.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.helloworldapp.R;
 import com.example.helloworldapp.bmi.BMI;
 import com.example.helloworldapp.bmi.BMICategories;
 
@@ -30,7 +29,7 @@ public class BmiDetailsActivity extends MenuActivity {
         bmiLabel.setText(String.valueOf(calculatedBmi));
         Button button = findViewById(R.id.bmi_list_button);
         button.setOnClickListener(view -> {
-            Intent intent = new Intent(this, BMIListItem.class);
+            Intent intent = new Intent(this, BMIListItemActivity.class);
             BMI bmi = new BMICategories().get(calculatedBmi);
             intent.putExtra("title", bmi.getTitle());
             intent.putExtra("description", bmi.getDescription());
