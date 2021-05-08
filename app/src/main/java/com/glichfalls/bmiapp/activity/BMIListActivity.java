@@ -1,13 +1,13 @@
-package com.example.helloworldapp.activity;
+package com.glichfalls.bmiapp.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 
-import com.example.helloworldapp.R;
-import com.example.helloworldapp.adapter.BMIAdapter;
-import com.example.helloworldapp.bmi.BMI;
-import com.example.helloworldapp.bmi.BMICategories;
+import com.glichfalls.bmiapp.R;
+import com.glichfalls.bmiapp.adapter.BMIAdapter;
+import com.glichfalls.bmiapp.bmi.BMI;
+import com.glichfalls.bmiapp.bmi.BMICategories;
 
 public class BMIListActivity extends MenuActivity {
 

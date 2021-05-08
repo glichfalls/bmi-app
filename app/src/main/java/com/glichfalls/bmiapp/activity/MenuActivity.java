@@ -1,4 +1,4 @@
-package com.example.helloworldapp.activity;
+package com.glichfalls.bmiapp.activity;
 
 import android.content.Intent;
 import android.view.Menu;
@@ -6,7 +6,7 @@ import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.helloworldapp.R;
+import com.glichfalls.bmiapp.R;
 
 public abstract class MenuActivity extends AppCompatActivity {
 

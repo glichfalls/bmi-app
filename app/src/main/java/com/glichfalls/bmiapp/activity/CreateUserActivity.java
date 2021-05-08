@@ -1,4 +1,4 @@
-package com.example.helloworldapp.activity;
+package com.glichfalls.bmiapp.activity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -6,7 +6,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.helloworldapp.R;
+import com.glichfalls.bmiapp.R;
 
 public class CreateUserActivity extends MenuActivity {
 

@@ -1,10 +1,10 @@
-package com.example.helloworldapp.activity;
+package com.glichfalls.bmiapp.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
-import com.example.helloworldapp.R;
+import com.glichfalls.bmiapp.R;
 
 public class SettingsActivity extends MenuActivity {
 

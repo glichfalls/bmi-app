@@ -1,4 +1,4 @@
-package com.example.helloworldapp.bmi;
+package com.glichfalls.bmiapp.bmi;
 
 public class BMI {
 

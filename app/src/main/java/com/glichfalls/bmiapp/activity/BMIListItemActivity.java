@@ -1,10 +1,9 @@
-package com.example.helloworldapp.activity;
+package com.glichfalls.bmiapp.activity;
 
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.example.helloworldapp.R;
-import com.example.helloworldapp.activity.MenuActivity;
+import com.glichfalls.bmiapp.R;
 
 public class BMIListItemActivity extends MenuActivity {
 
