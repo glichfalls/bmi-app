@@ -6,16 +6,21 @@
     <item
         android:id="@+id/menu_item_home"
         android:enabled="true"
-        android:title="Home" />
+        android:title="@string/nav_home" />
 
     <item
         android:id="@+id/menu_item_calculate"
         android:enabled="true"
-        android:title="BMI Calculator" />
+        android:title="@string/nav_bmi_calculator" />
 
     <item
         android:id="@+id/menu_item_bmi_list"
         android:enabled="true"
-        android:title="BMI Details" />
+        android:title="@string/nav_bmi_details" />
+
+    <item
+        android:id="@+id/menu_item_settings"
+        android:enabled="true"
+        android:title="@string/nav_settings" />
 
 </menu>

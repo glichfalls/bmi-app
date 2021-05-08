@@ -1,10 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">BMI App</string>
-    <string name="title_activity_b_m_i">BMIActivity</string>
     <string name="nav_home">Home</string>
-    <string name="nav_bmi_calculator">BMI Calculator</string>
+    <string name="nav_bmi_calculator">BMI Rechner</string>
     <string name="nav_bmi_details">BMI Details</string>
-    <string name="settings_button_create_user">Create User</string>
     <string name="create_a_new_user">Create a new User</string>
     <string name="username">Username</string>
     <string name="create_user">Create User</string>
