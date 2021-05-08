@@ -17,24 +17,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/current_user_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/current_user"
-        app:layout_constraintBottom_toTopOf="@+id/create_user_edit_text_name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/current_user_value"
-        app:layout_constraintTop_toBottomOf="@+id/create_user_title" />
-
-    <TextView
-        android:id="@+id/current_user_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        app:layout_constraintStart_toEndOf="@+id/current_user_label"
+    <Spinner
+        android:id="@+id/employee_spinner"
+        android:layout_width="208dp"
+        android:layout_height="26dp"
         app:layout_constraintBottom_toTopOf="@+id/create_user_edit_text_name"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/create_user_title" />
 
     <EditText
@@ -43,7 +32,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/username"
+        android:text=""
         app:layout_constraintBottom_toTopOf="@+id/confirm_create_user_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
