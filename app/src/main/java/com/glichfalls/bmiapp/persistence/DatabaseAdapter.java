@@ -6,6 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.glichfalls.bmiapp.model.user.User;
+
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +17,7 @@ public class DatabaseAdapter {
     private static final int databaseVersion = 1;
     private static final String databaseName = "data";
     private static final String tableName = "employee";
+    private static final String bmiTable = "bmi";
 
     private final DatabaseHelper helper;
     private SQLiteDatabase database;
@@ -26,38 +30,60 @@ public class DatabaseAdapter {
         database  = helper.getWritableDatabase();
     }
 
-    public void insertEmployee(String name) {
+    public User insertUser(String name) {
         ContentValues values = new ContentValues();
         values.put("name", name);
-        database.insert(tableName, null, values);
+        long id = database.insert(tableName, null, values);
+        if(id == -1) {
+            throw new RuntimeException("failed to insert user");
+        }
+        return new User(id, name);
     }
 
-    public String selectEmployee(int id) {
-        String[] columns = { "name" };
+    public void insertBmi(long userId, float height, float weight) {
+        ContentValues values = new ContentValues();
+        values.put("user", userId);
+        values.put("timestamp", new Timestamp(System.currentTimeMillis()).getTime());
+        values.put("height", height);
+        values.put("weight", weight);
+        database.insert(bmiTable, null, values);
+    }
+
+    public User selectUser(long id) {
+        String[] columns = { "id", "name" };
         String selection = "id = ?";
-        String[] args = { Integer.toString(id) };
+        String[] args = { Long.toString(id) };
         Cursor result = database.query(tableName, columns, selection, args, null, null, null);
-        return result.getString(0);
+        if(result.getCount() != 1) {
+            return null;
+        }
+        result.moveToFirst();
+        User user = new User(
+                result.getLong(0),
+                result.getString(1)
+        );
+        result.close();
+        return user;
     }
 
-    public List<String> selectAll() {
-        String[] columns = { "name" };
+    public List<User> selectAllUser() {
+        String[] columns = { "id", "name" };
         Cursor c = database.query(tableName, columns, null, null, null, null, null);
-        List<String> results = new ArrayList<>();
+        List<User> results = new ArrayList<>();
         c.moveToFirst();
         while(!c.isAfterLast()) {
-            results.add(c.getString(0));
+            results.add(new User(c.getInt(0), c.getString(1)));
             c.moveToNext();
         }
         c.close();
         return results;
     }
 
-    public void updateEmployee(int id, String name) {
+    public void updateEmployee(User user) {
         ContentValues values = new ContentValues();
-        values.put("name", name);
+        values.put("name", user.getName());
         String selection = "id = ?";
-        String[] args = { Integer.toString(id) };
+        String[] args = { Long.toString(user.getId()) };
         database.update(tableName, values, selection, args);
     }
 
@@ -70,7 +96,9 @@ public class DatabaseAdapter {
     private static class DatabaseHelper extends SQLiteOpenHelper {
 
         private static final String createTablesQuery = String.format("CREATE TABLE IF NOT EXISTS %s (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT);", tableName);
+        private static final String createBmiTableQuery = String.format("CREATE TABLE IF NOT EXISTS %s (id INTEGER PRIMARY KEY AUTOINCREMENT, user INTEGER, timestamp INTEGER, weight FLOAT, height FLOAT);", bmiTable);
         private static final String dropTablesQuery = String.format("DROP TABLE IF EXISTS %s;", tableName);
+        private static final String dropBmiTableQuery = String.format("DROP TABLE IF EXISTS %s;", bmiTable);
 
         public DatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
             super(context, name, factory, version);
@@ -79,11 +107,13 @@ public class DatabaseAdapter {
         @Override
         public void onCreate(SQLiteDatabase database) {
             database.execSQL(createTablesQuery);
+            database.execSQL(createBmiTableQuery);
         }
 
         @Override
         public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion) {
             database.execSQL(dropTablesQuery);
+            database.execSQL(dropBmiTableQuery);
             onCreate(database);
         }
     }

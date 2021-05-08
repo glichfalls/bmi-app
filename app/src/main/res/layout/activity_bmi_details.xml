@@ -118,8 +118,20 @@
         android:layout_height="wrap_content"
         android:text="Show details"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/save_bmi_button"
+        app:layout_constraintHorizontal_bias="0.265"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bmi_details_title"
+        app:layout_constraintVertical_bias="0.502" />
+
+    <Button
+        android:id="@+id/save_bmi_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save BMI"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bmi_list_button"
         app:layout_constraintTop_toBottomOf="@+id/bmi_details_title" />
 
 
