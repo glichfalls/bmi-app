@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.glichfalls.bmiapp.R;
 
@@ -21,9 +22,13 @@ public class BMIActivity extends MenuActivity {
             EditText weight = findViewById(R.id.editTextNumberDecimal);
             EditText height = findViewById(R.id.editTextNumberDecimal2);
             Intent intent = new Intent(this, BmiDetailsActivity.class);
-            intent.putExtra(WEIGHT, Float.parseFloat(weight.getText().toString()));
-            intent.putExtra(HEIGHT, Float.parseFloat(height.getText().toString()));
-            startActivity(intent);
+            try {
+                intent.putExtra(WEIGHT, Float.parseFloat(weight.getText().toString()));
+                intent.putExtra(HEIGHT, Float.parseFloat(height.getText().toString()));
+                startActivity(intent);
+            } catch (NumberFormatException e) {
+                Toast.makeText(this, "please enter valid numbers", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 
