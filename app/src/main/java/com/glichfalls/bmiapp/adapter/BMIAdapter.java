@@ -21,7 +21,7 @@ public class BMIAdapter extends ArrayAdapter<BMI> {
     public View getView(int position, View convertView, ViewGroup parent) {
         BMI bmi = getItem(position);
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.bmi_item, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.simple_list_item, parent, false);
         }
         TextView item = convertView.findViewById(R.id.bmi_item_name);
         item.setText(bmi.getTitle());

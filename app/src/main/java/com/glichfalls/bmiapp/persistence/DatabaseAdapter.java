@@ -100,20 +100,6 @@ public class DatabaseAdapter {
         return results;
     }
 
-    public void updateEmployee(User user) {
-        ContentValues values = new ContentValues();
-        values.put("name", user.getName());
-        String selection = "id = ?";
-        String[] args = { Long.toString(user.getId()) };
-        database.update(tableName, values, selection, args);
-    }
-
-    public void deleteEmployee(int id) {
-        String selection = "id = ?";
-        String[] args = { Integer.toString(id) };
-        database.delete(tableName, selection, args);
-    }
-
     private static class DatabaseHelper extends SQLiteOpenHelper {
 
         private static final String createTablesQuery = String.format("CREATE TABLE IF NOT EXISTS %s (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT);", tableName);

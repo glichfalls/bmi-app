@@ -2,6 +2,8 @@ package com.glichfalls.bmiapp.activity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.glichfalls.bmiapp.R;
 import com.glichfalls.bmiapp.model.bmi.BMI;
@@ -16,6 +18,7 @@ public class HistoryActivity extends MenuActivity {
     private SharedPreferences prefs;
 
     private List<BMI> bmis;
+    private ListView list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +28,9 @@ public class HistoryActivity extends MenuActivity {
         database = new DatabaseAdapter(this);
         database.open();
         bmis = database.selectAllBmiByUser(prefs.getLong("id", 0));
-
+        list = findViewById(R.id.history_list);
+        ArrayAdapter<BMI> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, bmis);
+        list.setAdapter(adapter);
     }
 
 }

@@ -29,8 +29,12 @@ public abstract class MenuActivity extends AppCompatActivity {
             case R.id.menu_item_bmi_list:
                 startActivity(new Intent(this, BMIListActivity.class));
                 return true;
+            case R.id.menu_item_bmi_history:
+                startActivity(new Intent(this, HistoryActivity.class));
+                return true;
             case R.id.menu_item_settings:
                 startActivity(new Intent(this, SettingsActivity.class));
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
